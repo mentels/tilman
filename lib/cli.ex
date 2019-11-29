@@ -52,7 +52,7 @@ defmodule TilManager.CLI do
 
   defp maybe_debug_loglevel(debug?), do: debug? && Logger.configure(level: :debug)
 
-  defp maybe_print_version_and_halt(false), do: nil
+  defp maybe_print_version_and_halt(nil), do: nil
   defp maybe_print_version_and_halt(_) do
     {:ok, vsn} = :application.get_key(:til_manager, :vsn)
     IO.puts("#{vsn}")
